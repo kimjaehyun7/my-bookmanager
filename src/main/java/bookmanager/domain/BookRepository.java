@@ -1,10 +1,17 @@
 package bookmanager.domain;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BookRepository {
 
+    private final Map<Long, Book> store = new HashMap<>();
+    private Long sequence = 0L;
+
     public void save(Book book) {
+        book.setId(++sequence);
+        store.put(book.getId(), book);
     }
 
     public Book findById(Long id) {
