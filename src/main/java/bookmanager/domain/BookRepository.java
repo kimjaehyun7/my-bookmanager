@@ -29,7 +29,7 @@ public class BookRepository {
     public void deleteById(Long id) {
     }
 
-    public boolean idDuplicated(String title, String author) {
+    public boolean isDuplicated(String title, String author) {
         return false;
     }
 }
