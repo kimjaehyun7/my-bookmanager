@@ -18,12 +18,12 @@ public class BookService {
         return null;
     }
 
-    public void deleteBook(long id) {
+    public void deleteBook(Long id) {
     }
 
-    public void borrowBook(long id) {
+    public void borrowBook(Long id) {
     }
 
-    public void returnBook(long id) {
+    public void returnBook(Long id) {
     }
 }

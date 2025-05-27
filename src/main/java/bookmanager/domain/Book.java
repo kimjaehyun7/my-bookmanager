@@ -2,7 +2,7 @@ package bookmanager.domain;
 
 public class Book {
 
-    private long id;
+    private Long id;
     private final String title;
     private final String author;
     private boolean isBorrowed;
@@ -12,11 +12,11 @@ public class Book {
         this.author = author;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

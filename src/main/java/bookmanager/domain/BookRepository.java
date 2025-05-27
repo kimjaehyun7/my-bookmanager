@@ -7,7 +7,7 @@ public class BookRepository {
     public void save(Book book) {
     }
 
-    public Book findById(long id) {
+    public Book findById(Long id) {
         return null;
     }
 
@@ -19,7 +19,7 @@ public class BookRepository {
         return null;
     }
 
-    public void deleteById(long id) {
+    public void deleteById(Long id) {
     }
 
     public boolean idDuplicated(String title, String author) {
