@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -62,5 +63,37 @@ class BookServiceTest {
         assertTrue(byId.isBorrowed());
         service.returnBook(1L);
         assertFalse(byId.isBorrowed());
+    }
+
+    @Test
+    void 도서_중복_등록_예외() {
+        service.registerBook("도서", "저자");
+        assertThrows(IllegalArgumentException.class, () -> service.registerBook("도서", "저자"));
+    }
+
+    @Test
+    void 존재하지_않는_ID로_도서_삭제_예외() {
+        service.registerBook("도서", "저자");
+        assertThrows(NoSuchElementException.class, () -> service.deleteBook(2L));
+    }
+
+    @Test
+    void 존재하지_않는_ID로_도서_대여_반납_예외() {
+        service.registerBook("도서", "저자");
+        assertThrows(NoSuchElementException.class, () -> service.borrowBook(2L));
+        assertThrows(NoSuchElementException.class, () -> service.returnBook(2L));
+    }
+
+    @Test
+    void 이미_대출된_도서를_대여시도_예외() {
+        service.registerBook("도서", "저자");
+        service.borrowBook(1L);
+        assertThrows(IllegalStateException.class, () -> service.borrowBook(1L));
+    }
+
+    @Test
+    void 대출되지_않은_도서를_반납_시도_예외() {
+        service.registerBook("도서", "저자");
+        assertThrows(IllegalStateException.class, () -> service.returnBook(1L));
     }
 }
