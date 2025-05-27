@@ -4,7 +4,10 @@ import java.util.List;
 
 public class BookService {
 
-    public BookService() {
+    private final BookRepository repository;
+
+    public BookService(BookRepository repository) {
+        this.repository = repository;
     }
 
     public void registerBook(String title, String author) {
