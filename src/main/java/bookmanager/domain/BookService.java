@@ -34,8 +34,24 @@ public class BookService {
     }
 
     public void borrowBook(Long id) {
+        Book book = repository.findById(id);
+        if (book == null) {
+            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
+        }
+        if (book.isBorrowed()) {
+            throw new IllegalStateException("이미 대여된 도서입니다.");
+        }
+        book.borrow();
     }
 
     public void returnBook(Long id) {
+        Book book = repository.findById(id);
+        if (book == null) {
+            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
+        }
+        if (!book.isBorrowed()) {
+            throw new IllegalStateException("대여된 도서가 아니므로 반납하실 수 없습니다.");
+        }
+        book.returnBook();
     }
 }

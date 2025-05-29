@@ -33,8 +33,10 @@ public class Book {
     }
 
     public void borrow() {
+        isBorrowed = true;
     }
 
     public void returnBook() {
+        isBorrowed = false;
     }
 }
