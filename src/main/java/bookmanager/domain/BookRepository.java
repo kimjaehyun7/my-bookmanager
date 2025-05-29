@@ -30,6 +30,8 @@ public class BookRepository {
     }
 
     public boolean isDuplicated(String title, String author) {
-        return false;
+        return store.values().stream()
+                .anyMatch(book -> book.getTitle().equals(title) &&
+                        book.getAuthor().equals(author));
     }
 }
