@@ -27,17 +27,12 @@ public class BookService {
     }
 
     public void deleteBook(Long id) {
-        if (repository.findById(id) == null) {
-            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
-        }
+        findByIdOrThrow(id);
         repository.deleteById(id);
     }
 
     public void borrowBook(Long id) {
-        Book book = repository.findById(id);
-        if (book == null) {
-            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
-        }
+        Book book = findByIdOrThrow(id);
         if (book.isBorrowed()) {
             throw new IllegalStateException("이미 대여된 도서입니다.");
         }
@@ -45,13 +40,18 @@ public class BookService {
     }
 
     public void returnBook(Long id) {
-        Book book = repository.findById(id);
-        if (book == null) {
-            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
-        }
+        Book book = findByIdOrThrow(id);
         if (!book.isBorrowed()) {
             throw new IllegalStateException("대여된 도서가 아니므로 반납하실 수 없습니다.");
         }
         book.returnBook();
+    }
+
+    private Book findByIdOrThrow(Long id) {
+        Book book = repository.findById(id);
+        if (book == null) {
+            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
+        }
+        return book;
     }
 }
