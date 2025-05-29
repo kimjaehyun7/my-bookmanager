@@ -18,11 +18,11 @@ public class BookService {
     }
 
     public List<Book> getBooks() {
-        return null;
+        return repository.findAll();
     }
 
     public List<Book> searchBooks(String keyword) {
-        return null;
+        return repository.findByKeyword(keyword);
     }
 
     public void deleteBook(Long id) {
