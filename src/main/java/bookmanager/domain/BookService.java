@@ -1,6 +1,7 @@
 package bookmanager.domain;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class BookService {
 
@@ -26,6 +27,10 @@ public class BookService {
     }
 
     public void deleteBook(Long id) {
+        if (repository.findById(id) == null) {
+            throw new NoSuchElementException("존재하지 않는 ID 입니다.");
+        }
+        repository.deleteById(id);
     }
 
     public void borrowBook(Long id) {
