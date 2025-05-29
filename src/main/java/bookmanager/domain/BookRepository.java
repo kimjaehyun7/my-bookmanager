@@ -31,6 +31,7 @@ public class BookRepository {
     }
 
     public void deleteById(Long id) {
+        store.remove(id);
     }
 
     public boolean isDuplicated(String title, String author) {
