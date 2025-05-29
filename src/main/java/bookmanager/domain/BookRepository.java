@@ -1,5 +1,6 @@
 package bookmanager.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,15 +16,18 @@ public class BookRepository {
     }
 
     public Book findById(Long id) {
-        return null;
+        return store.get(id);
     }
 
     public List<Book> findAll() {
-        return null;
+        return new ArrayList<>(store.values());
     }
 
     public List<Book> findByKeyword(String keyword) {
-        return null;
+        return store.values().stream()
+                .filter(book -> book.getTitle().contains(keyword) ||
+                        book.getAuthor().contains(keyword))
+                .toList();
     }
 
     public void deleteById(Long id) {
