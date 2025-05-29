@@ -11,6 +11,10 @@ public class BookService {
     }
 
     public void registerBook(String title, String author) {
+        if (repository.isDuplicated(title, author)) {
+            throw new IllegalArgumentException("이미 등록된 도서입니다.");
+        }
+        repository.save(new Book(title, author));
     }
 
     public List<Book> getBooks() {
