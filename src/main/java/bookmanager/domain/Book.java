@@ -39,4 +39,9 @@ public class Book {
     public void returnBook() {
         isBorrowed = false;
     }
+
+    @Override
+    public String toString() {
+        return String.format("[%d]| %-22s| %-11s|", id, title, author);
+    }
 }
