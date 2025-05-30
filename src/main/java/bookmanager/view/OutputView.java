@@ -63,6 +63,10 @@ public class OutputView {
         System.out.println(RETURN_BOOK);
     }
 
+    public static void printExit() {
+        System.out.println(EXIT);
+    }
+
     public static void printBooks(List<Book> books) {
         System.out.println(BOOKS);
         for (Book book : books) {
