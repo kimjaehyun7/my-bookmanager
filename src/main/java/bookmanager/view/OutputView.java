@@ -9,7 +9,7 @@ public class OutputView {
     private static final String TITLE = "==================[도서 관리 시스템]==================";
     private static final String BOOKS = "==================[도서 목록]==================\n" +
             "ID | 제목                    | 저자         |";
-    private static final String MAIN_OPTION = "[옵션] 1. 등록 2. 전제 조회 3. 검색 4. 삭제 5. 대여/반납";
+    private static final String MAIN_OPTION = "[옵션] 1. 등록 2. 전제 조회 3. 검색 4. 삭제 5. 대여/반납 0. 종료";
     private static final String BORROW_RETURN_OPTION = "[옵션] 1. 대여 2. 반납";
     private static final String READ_OPTION = "옵션을 입력해주세요: ";
     private static final String READ_BOOK_TITLE = "도서 제목을 입력해주세요: ";
@@ -19,6 +19,7 @@ public class OutputView {
     private static final String DELETE_BOOK = "[도서 삭제 완료]";
     private static final String RETURN_BOOK = "[도서 반납 완료]";
     private static final String BORROW_BOOK = "[도서 대여 완료]";
+    private static final String EXIT = "프로그램을 종료합니다.";
 
     public static void printStartMessage() {
         System.out.println(TITLE);
