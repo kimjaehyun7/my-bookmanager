@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class InputView {
     private static final Scanner input = new Scanner(System.in);
 
-    public static String readOption() {
+    public static int readOption() {
         OutputView.printMainOption();
-        return input.nextLine();
+        return Integer.parseInt(input.nextLine());
     }
 
     public static String readTitle() {

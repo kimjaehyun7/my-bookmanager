@@ -21,15 +21,15 @@ public class BookManagerController {
 
         while (true) {
             try {
-                String option = InputView.readOption();
+                int option = InputView.readOption();
 
                 switch (option) {
-                    case "1" -> registerBook();
-                    case "2" -> showBooks();
-                    case "3" -> searchBooks();
-                    case "4" -> deleteBook();
-                    case "5" -> borrowOrReturnBook();
-                    case "0" -> {
+                    case 1 -> registerBook();
+                    case 2 -> showBooks();
+                    case 3 -> searchBooks();
+                    case 4 -> deleteBook();
+                    case 5 -> borrowOrReturnBook();
+                    case 0 -> {
                         OutputView.printExit();
                         return;
                     }
