@@ -61,9 +61,11 @@ public class BookManagerController {
         if (option == 1) {
             Long id = InputView.readBookId();
             service.borrowBook(id);
+            OutputView.printBorrowBook();
         } else if (option == 2) {
             Long id = InputView.readBookId();
             service.returnBook(id);
+            OutputView.printReturnBook();
         }
     }
 }
