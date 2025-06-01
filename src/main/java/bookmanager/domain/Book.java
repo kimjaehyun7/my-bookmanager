@@ -42,6 +42,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("[%d]| %-22s| %-11s|", id, title, author);
+        String status = isBorrowed ? "대여불가" : "대여가능";
+        return String.format("[%d]| %-22s| %-11s| %s", id, title, author,status);
     }
 }
