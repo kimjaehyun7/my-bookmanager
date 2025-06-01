@@ -6,6 +6,7 @@ import bookmanager.view.InputView;
 import bookmanager.view.OutputView;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class BookManagerController {
 
@@ -19,18 +20,22 @@ public class BookManagerController {
         OutputView.printStartMessage();
 
         while (true) {
-            String option = InputView.readOption();
+            try {
+                String option = InputView.readOption();
 
-            switch (option) {
-                case "1" -> registerBook();
-                case "2" -> showBooks();
-                case "3" -> searchBooks();
-                case "4" -> deleteBook();
-                case "5" -> borrowOrReturnBook();
-                case "0" -> {
-                    OutputView.printExit();
-                    return;
+                switch (option) {
+                    case "1" -> registerBook();
+                    case "2" -> showBooks();
+                    case "3" -> searchBooks();
+                    case "4" -> deleteBook();
+                    case "5" -> borrowOrReturnBook();
+                    case "0" -> {
+                        OutputView.printExit();
+                        return;
+                    }
                 }
+            } catch (IllegalArgumentException | IllegalStateException | NoSuchElementException e) {
+                OutputView.printErrorMessage(e.getMessage());
             }
         }
     }

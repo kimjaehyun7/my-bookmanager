@@ -73,4 +73,8 @@ public class OutputView {
             System.out.println(book);
         }
     }
+
+    public static void printErrorMessage(String message) {
+        System.out.println("[오류 발생]: " + message);
+    }
 }
