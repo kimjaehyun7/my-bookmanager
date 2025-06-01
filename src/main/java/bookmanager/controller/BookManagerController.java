@@ -34,6 +34,8 @@ public class BookManagerController {
                         return;
                     }
                 }
+            } catch (NumberFormatException e) {
+                OutputView.printErrorMessage("숫자를 입력해주세요.");
             } catch (IllegalArgumentException | IllegalStateException | NoSuchElementException e) {
                 OutputView.printErrorMessage(e.getMessage());
             }
