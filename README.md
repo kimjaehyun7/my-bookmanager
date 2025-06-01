@@ -25,3 +25,27 @@
 - 이미 대여 중인 도서는 중복 대여할 수 없다.
 - 반납하지 않은 도서는 삭제할 수 없다.
 ---
+
+# 프로젝트 구조
+```
+src/
+├── main/
+│   └── java/
+│       └── bookmanager/
+│           ├── App.java
+│           ├── controller/
+│           │   └── BookManagerController.java 
+│           ├── domain/ 
+│           │   ├── Book.java 
+│           │   ├── BookRepository.java
+│           │   └── BookService.java
+│           └── view/ 
+│               ├── InputView.java
+│               └── OutputView.java
+└── test/
+    └── java/
+        └── bookmanager/
+            └── domain/
+                ├── BookRepositoryTest.java
+                └── BookServiceTest.java
+```
